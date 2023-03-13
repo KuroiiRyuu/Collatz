@@ -1,1 +1,1 @@
-# Collatz
+# Programs for investigate Collatz
