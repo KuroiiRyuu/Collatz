@@ -1,5 +1,5 @@
 # Variables
-numero = 135
+numero = 6
 
 contador = 0
 lista_numero = []
