@@ -1,15 +1,13 @@
 import pandas as pd
+import numpy as np
 
-# Definir los nombres de las columnas
-nombres_columnas = ["Columna 1", "Columna 2", "Columna 3"]
+# Crear DataFrame vacío
+df = pd.DataFrame()
 
-# Crear DataFrame vacío con los nombres de las columnas
-df = pd.DataFrame(columns=nombres_columnas)
-
-# Función para marcar una celda con "X"
-def marcar_celda(fila, columna):
+# Función para marcar una celda con el número
+def marcar_celda(fila, columna, numero):
     global df
-    df.at[fila, columna] = "X"
+    df.at[fila, columna] = numero
 
 # Ciclo para pedir números y marcar las celdas correspondientes
 while True:
@@ -17,7 +15,14 @@ while True:
     if numero_str == "":
         break
     numero = int(numero_str)
-    marcar_celda(numero, "Columna 2")
+    marcar_celda(numero, "1", "X")
+    marcar_celda(numero, "2", "X")
+    marcar_celda(numero, "3", "X")
+
+# Reemplazar los valores NaN por los números faltantes
+max_num = df.index.max()
+df = df.reindex(np.arange(max_num+1))
+df = df.fillna(" ")
 
 # Imprimir el DataFrame en la consola
 print(df)
